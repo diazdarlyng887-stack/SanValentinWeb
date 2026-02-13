@@ -78,6 +78,24 @@
       box-shadow: 0 12px 24px rgba(201, 83, 136, 0.2);
     }
 
+    .media-row {
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      gap: 16px;
+      margin: 0 auto;
+      width: fit-content;
+      max-width: 100%;
+    }
+
+    .bouquet-photo {
+      width: clamp(122px, 18vw, 190px);
+      height: auto;
+      display: block;
+      animation: softBob 3s ease-in-out infinite;
+      filter: drop-shadow(0 10px 20px rgba(201, 83, 136, 0.25));
+    }
+
     .pin-crop {
       width: 100%;
       border-radius: 16px;
@@ -142,6 +160,11 @@
       }
     }
 
+    @keyframes softBob {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
+
     @media (max-width: 600px) {
       body {
         align-items: start;
@@ -167,6 +190,16 @@
       .pin-wrap {
         width: 100%;
         padding: 8px;
+      }
+
+      .media-row {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .bouquet-photo {
+        width: clamp(110px, 34vw, 170px);
       }
 
       .back-link {
@@ -239,11 +272,15 @@
     <h1 class="reveal">me + you</h1>
     <p class="reveal">estos somos tú y yooo mi amorcitooo 💞</p>
 
-    <div class="pin-wrap reveal" aria-label="Imagen de Pinterest">
-      <span class="tiny-heart">❤</span>
-      <div class="pin-crop">
-        <img class="pin-image" src="https://i.pinimg.com/736x/06/5d/87/065d87fcd8c3d08700ca98d8963e34dd.jpg" alt="Parejita tomada de la mano" />
+    <div class="media-row reveal">
+      <div class="pin-wrap" aria-label="Imagen de Pinterest">
+        <span class="tiny-heart">❤</span>
+        <div class="pin-crop">
+          <img class="pin-image" src="https://i.pinimg.com/736x/06/5d/87/065d87fcd8c3d08700ca98d8963e34dd.jpg" alt="Parejita tomada de la mano" />
+        </div>
       </div>
+
+      <img class="bouquet-photo" src="Ramo Transparente.png" alt="Ramo de flores decorativo" />
     </div>
 
     <a class="round-btn back-link reveal" href="Pagina de Prueba.html">volver</a>
@@ -266,6 +303,7 @@
       item.style.transitionDelay = `${index * 140}ms`;
       observer.observe(item);
     });
+
   </script>
 </body>
 </html>
